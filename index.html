@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Temperature Converter</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+      }
+      
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: #3e8e41;
+      }
+      
+      #result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Temperature Converter</h1>
+    <form>
+      <label for="fahrenheit-input">Enter a temperature in Fahrenheit:</label>
+      <input type="text" id="fahrenheit-input">
+      <button onclick="convert()">Convert</button>
+    </form>
+    <div id="result"></div>
+    
+    <script>
+      function fahrenheitToCelsius(fahrenheit) {
+        const celsius = (fahrenheit - 32) * 5 / 9;
+        return celsius;
+      }
+
+      function convert() {
+        const fahrenheitInput = document.getElementById('fahrenheit-input');
+        const fahrenheitTemp = parseFloat(fahrenheitInput.value);
+        const celsiusTemp = fahrenheitToCelsius(fahrenheitTemp);
+        const result = document.getElementById('result');
+        result.innerHTML = `${fahrenheitTemp} degrees Fahrenheit is ${celsiusTemp.toFixed(2)} degrees Celsius`;
+      }
+    </script>
+  </body>
+</html>
